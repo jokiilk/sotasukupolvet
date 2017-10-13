@@ -1,5 +1,5 @@
 ---
-title: "Sisällissota ja II MS"
+title: "SisÃ¤llissota ja II MS"
 output: html_document
 ---
 
@@ -9,13 +9,13 @@ library(dplyr)
 library(ggplot2)
 ```
 
-## Sotasurmatietokannan ja toisen maailmansodan menehtyneiden tietokannan muokkaus ja yhdistäminen 
+## Sotasurmatietokannan ja toisen maailmansodan menehtyneiden tietokannan muokkaus ja yhdistÃ¤minen 
 
-Tietokanta-aineistoja muokattu hieman. 1939-45 menehtyneiden kannasta poistettu sodan jälkeen kuolleet ja sisällissodan sotasurma-aineisto on rajattu koskemaan vain vuotta 1918 (mukana kaikki kuolintavat). Yhteenlasketuissa summissa on tällä hetkellä myös naiset mukana, mikä tekee prosentuaalisista osuuksista pienempiä.
+Tietokanta-aineistoja muokattu hieman. 1939-45 menehtyneiden kannasta poistettu sodan jÃ¤lkeen kuolleet ja sisÃ¤llissodan sotasurma-aineisto on rajattu koskemaan vain vuotta 1918 (mukana kaikki kuolintavat). Yhteenlasketuissa summissa on tÃ¤llÃ¤ hetkellÃ¤ myÃ¶s naiset mukana, mikÃ¤ tekee prosentuaalisista osuuksista pienempiÃ¤.
 
-Ikäluokkien koot on haettu tilastokeskuksen [verkkopalvelusta](http://pxnet2.stat.fi/PXWeb/pxweb/fi/StatFin/StatFin__vrm__synt/statfin_synt_pxt_001.px/?rxid=66ddb715-599f-4faa-92b1-a33a3624f444)
+IkÃ¤luokkien koot on haettu tilastokeskuksen [verkkopalvelusta](http://pxnet2.stat.fi/PXWeb/pxweb/fi/StatFin/StatFin__vrm__synt/statfin_synt_pxt_001.px/?rxid=66ddb715-599f-4faa-92b1-a33a3624f444)
 
-[R-skripti](https://github.com/jokiilk/sotasukupolvet/blob/master/create_ikaluokittaiset_kuolemat.R) datan muokkauksesta ja yhdistämisestä
+[R-skripti](https://github.com/jokiilk/sotasukupolvet/blob/master/create_ikaluokittaiset_kuolemat.R) datan muokkauksesta ja yhdistÃ¤misestÃ¤
 
 Yhdistetty [data](https://github.com/jokiilk/sotasukupolvet/blob/master/ikaluokat.csv)
 
@@ -28,10 +28,10 @@ head(ikaluokat)
 
 `naiset3945`
 `miehet3945`
-´´
-´´
-´´
-´´
+Â´Â´
+Â´Â´
+Â´Â´
+Â´Â´
 
 
 ## Visualisointi
@@ -42,15 +42,15 @@ head(ikaluokat)
 
 
 kuvaaja <- ggplot(ikaluokat, aes(x = Vuosi)) + 
-  geom_area(aes(y = osuus_ikaluokasta, fill="Yhteenlaskettu osuus ikäluokasta")) +
-  geom_line(aes(y = osuus_ikaluokasta1918, colour="1918 kuolleiden osuus ikäluokasta")) + 
-  geom_line(aes(y = osuus_ikaluokasta3945, colour = "39-45 kuolleiden osuus ikäluokasta")) +
+  geom_area(aes(y = osuus_ikaluokasta, fill="Yhteenlaskettu osuus ikÃ¤luokasta")) +
+  geom_line(aes(y = osuus_ikaluokasta1918, colour="1918 kuolleiden osuus ikÃ¤luokasta")) + 
+  geom_line(aes(y = osuus_ikaluokasta3945, colour = "39-45 kuolleiden osuus ikÃ¤luokasta")) +
   scale_fill_manual(name = "", values = c("#aaaaaa")) +
 scale_color_manual(name = "", values=c("#f05413", "#0b6990"))
 kuvaaja
 ```
 
-Kuvaajasta näkyy, että vuoden 1900 molemmin puolin on ikäluokkia, joista on kuollut molemmissa sodissa huomattava määrä ihmisiä.
+Kuvaajasta nÃ¤kyy, ettÃ¤ vuoden 1900 molemmin puolin on ikÃ¤luokkia, joista on kuollut molemmissa sodissa huomattava mÃ¤Ã¤rÃ¤ ihmisiÃ¤.
 
 
 ```{r, echo=FALSE}
@@ -64,9 +64,9 @@ head(osuudet_vuosisadan_vaihde, 20)
 
 ```{r, echo=FALSE}
 kuvaaja2 <- ggplot(osuudet_vuosisadan_vaihde, aes(x = Vuosi)) + 
-  geom_area(aes(y = osuus_ikaluokasta, fill="Yhteenlaskettu osuus ikäluokasta")) +
-  geom_line(aes(y = osuus_ikaluokasta1918, colour="1918 kuolleiden osuus ikäluokasta")) + 
-  geom_line(aes(y = osuus_ikaluokasta3945, colour = "39-45 kuolleiden osuus ikäluokasta")) +
+  geom_area(aes(y = osuus_ikaluokasta, fill="Yhteenlaskettu osuus ikÃ¤luokasta")) +
+  geom_line(aes(y = osuus_ikaluokasta1918, colour="1918 kuolleiden osuus ikÃ¤luokasta")) + 
+  geom_line(aes(y = osuus_ikaluokasta3945, colour = "39-45 kuolleiden osuus ikÃ¤luokasta")) +
   scale_fill_manual(name = "", values = c("#aaaaaa")) +
 scale_color_manual(name = "", values=c("#f05413", "#0b6990"))
 kuvaaja2
