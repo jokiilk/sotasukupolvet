@@ -20,18 +20,18 @@ Ikäluokkien koot on haettu tilastokeskuksen [verkkopalvelusta](http://pxnet2.st
 Yhdistetty [data](https://github.com/jokiilk/sotasukupolvet/blob/master/ikaluokat.csv)
 
 
-```{r}
+```{r, echo=FALSE}
 ikaluokat <- read.csv("ikaluokat.csv")
 ikaluokat[1]  <- NULL
 head(ikaluokat)
 ```
 
-`naiset3945`
-`miehet3945`
-´´
-´´
-´´
-´´
+#`naiset3945`
+#`miehet3945`
+#´´
+#´´
+#´´
+#´´
 
 
 ## Visualisointi
