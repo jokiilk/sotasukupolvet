@@ -3,7 +3,7 @@
 setwd("C:/Users/ijokipii/OD/Ilkan LVD/sotasukupolvet")
 library(dplyr)
 
-# Datan lukeminen R:n sis‰‰n, korjailuja vuosilukuihin ja rajaus vain sodassa kuolleisiin
+# Datan lukeminen R:n sis√§√§n, korjailuja vuosilukuihin ja rajaus vain sodassa kuolleisiin
 
 menehtyneet3945 <- read.csv("Menehtyneet3945.csv", sep = ";")
 
@@ -32,7 +32,7 @@ menehtyneet3945$SVUOSI <- as.numeric(menehtyneet3945$SVUOSI)
 
 ikaluokat3945 <- plyr::count(menehtyneet3945$SVUOSI)
 names(ikaluokat3945)[1] <- "vuosi"
-names(ikaluokat3945)[2] <- "Yhteens‰"
+names(ikaluokat3945)[2] <- "Yhteens√§"
 
      #naisten ja miesten erottelu
 naiset <- menehtyneet3945 %>% subset(menehtyneet3945$SPUOLI == "F") 
@@ -45,7 +45,7 @@ names(miehet_ikaluokat)[1] <- "Vuosi"
 
 
 # Sotasurma-tietokanta: datan lukeminen, vain vuosi 1918
-      # kaikki kuolinsyyt mukana, pit‰isikˆ rajata vain rintamalla kuolleisiin
+      # kaikki kuolinsyyt mukana, pit√§isik√∂ rajata vain rintamalla kuolleisiin
 sotasurmat <- read.csv("sotasurmat_joined.csv")
 
 sotasurmat$kuolinaika <- as.character(sotasurmat$kuolinaika)
@@ -68,10 +68,10 @@ sotas_naiset_ikaluokat <- plyr::count(sotas_naiset$syntymavuosi)
 names(sotas_naiset_ikaluokat)[1] <- "Vuosi"
 
 
-## Tilastokeskuksen ik‰luokka-aineisto pohjaksi
+## Tilastokeskuksen ik√§luokka-aineisto pohjaksi
 
-ikaluokat <- read.csv("ikaluokat.csv", sep =";")
-ikaluokat$Yhteens‰ <- ikaluokat$Pojat + ikaluokat$Tytˆt
+ikaluokat <- read.csv("ikaluokat_tilastokeskus.csv", sep =";")
+ikaluokat$Yhteens√§ <- ikaluokat$Pojat + ikaluokat$Tyt√∂t
 
 ## liitokset
 
@@ -89,13 +89,13 @@ names(ikaluokat)[8] <- "miehet1918"
 
 #yhteenlaskua
 
-ikaluokat$Yhteens‰3945 <- rowSums(ikaluokat[5:6], na.rm = TRUE)
-ikaluokat$Yhteens‰1918 <- rowSums(ikaluokat[7:8], na.rm = TRUE)
-ikaluokat$KuolematYht <- ikaluokat$Yhteens‰3945 + ikaluokat$Yhteens‰1918
+ikaluokat$Yhteens√§3945 <- rowSums(ikaluokat[5:6], na.rm = TRUE)
+ikaluokat$Yhteens√§1918 <- rowSums(ikaluokat[7:8], na.rm = TRUE)
+ikaluokat$KuolematYht <- ikaluokat$Yhteens√§3945 + ikaluokat$Yhteens√§1918
 
-ikaluokat$osuus_ikaluokasta <- ikaluokat$KuolematYht / ikaluokat$Yhteens‰ * 100
-ikaluokat$osuus_ikaluokasta3945 <- ikaluokat$Yhteens‰3945 / ikaluokat$Yhteens‰ * 100
-ikaluokat$osuus_ikaluokasta1918 <- ikaluokat$Yhteens‰1918 / ikaluokat$Yhteens‰ * 100
+ikaluokat$osuus_ikaluokasta <- ikaluokat$KuolematYht / ikaluokat$Yhteens√§ * 100
+ikaluokat$osuus_ikaluokasta3945 <- ikaluokat$Yhteens√§3945 / ikaluokat$Yhteens√§ * 100
+ikaluokat$osuus_ikaluokasta1918 <- ikaluokat$Yhteens√§1918 / ikaluokat$Yhteens√§ * 100
 
 write.csv(ikaluokat, file = "ikaluokat.csv")
 
