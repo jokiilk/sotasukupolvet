@@ -1,6 +1,6 @@
 
 
-setwd("C:/Users/ijokipii/OD/Ilkan LVD/sotasukupolvet")
+
 library(dplyr)
 
 # Datan lukeminen R:n sisään, korjailuja vuosilukuihin ja rajaus vain sodassa kuolleisiin
