@@ -23,15 +23,10 @@ Yhdistetty [data](https://github.com/jokiilk/sotasukupolvet/blob/master/ikaluoka
 ```{r, echo=FALSE}
 ikaluokat <- read.csv("ikaluokat.csv")
 ikaluokat[1]  <- NULL
-head(ikaluokat)
+
 ```
 
-#`naiset3945`
-#`miehet3945`
-#´´
-#´´
-#´´
-#´´
+
 
 
 ## Visualisointi
@@ -50,7 +45,7 @@ scale_color_manual(name = "", values=c("#f05413", "#0b6990"))
 kuvaaja
 ```
 
-Kuvaajasta näkyy, että vuoden 1900 molemmin puolin on ikäluokkia, joista on kuollut molemmissa sodissa huomattava määrä ihmisiä.
+Kuvaajasta näkyy, että vuoden 1900 molemmin puolin on ikäluokkia, joista on kuollut molemmissa sodissa huomattava määrä ihmisiä. Aineisto rajattuna kyseisiin vuosiin:
 
 
 ```{r, echo=FALSE}
